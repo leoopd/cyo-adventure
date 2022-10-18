@@ -3,23 +3,21 @@ package utils
 import (
 	"encoding/json"
 	"fmt"
-	"io/ioutil"
 	"log"
 	"os"
 )
 
-type adventure struct {
-	Title   string    `json:"title"`
-	Options []Options `json:"options"`
-	Story   []string  `json:"story"`
+type contents struct {
+	Part advPart `json:"intro"`
 }
 
-type Options struct {
-	Text map[string]string `json:"text"`
-	Arc  map[string]string `json:"arc"`
+type advPart struct {
+	Title   string `json:"title"`
+	Options []advOptions
+	Story   []string `json:"story"`
 }
 
-type advOption struct {
+type advOptions struct {
 	Text string `json:"text"`
 	Arc  string `json:"arc"`
 }
@@ -28,14 +26,16 @@ func JSONParser(jsonFile string) {
 
 	defer os.Exit(1)
 
-	// var adventure adventure
-	var adventureMap map[string]adventure
+	var adv contents
 
-	file, err := ioutil.ReadFile(jsonFile)
+	file, err := os.ReadFile(jsonFile)
 	if err != nil {
 		log.Fatal(err)
 	}
 	fmt.Println("Successfully read", jsonFile)
-	json.Unmarshal(file, &adventureMap)
-	fmt.Printf("%#+v\n", adventureMap)
+	err = json.Unmarshal(file, &adv)
+	fmt.Println(string(file))
+
+	fmt.Println(err)
+	fmt.Printf("%#+v\n", adv.Part.Story)
 }
