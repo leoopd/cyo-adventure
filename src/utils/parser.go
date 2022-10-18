@@ -9,13 +9,14 @@ import (
 )
 
 type adventure struct {
-	Arc string `json:"intro"`
+	Title   string    `json:"title"`
+	Options []Options `json:"options"`
+	Story   []string  `json:"story"`
 }
 
-type advBody struct {
-	Title   string      `json:"title"`
-	Story   []string    `json:"story"`
-	Options []advOption `json:"options"`
+type Options struct {
+	Text map[string]string `json:"text"`
+	Arc  map[string]string `json:"arc"`
 }
 
 type advOption struct {
@@ -28,7 +29,7 @@ func JSONParser(jsonFile string) {
 	defer os.Exit(1)
 
 	// var adventure adventure
-	var adventureMap map[string]interface{}
+	var adventureMap map[string]adventure
 
 	file, err := ioutil.ReadFile(jsonFile)
 	if err != nil {
