@@ -1,14 +1,12 @@
 package main
 
-import (
-	utils "github.com/leoopd/cyo-adventure/utils"
-)
+import "github.com/leoopd/cyo-adventure/adventure"
 
 func main() {
 
-	// defer os.Exit(1)
-
 	file := "gopher.json"
-	utils.StoryTeller(utils.JSONParser(file))
+	var advPart adventure.Part
+
+	_ = adventure.Intro(advPart, adventure.JSONParser(file))
 
 }
