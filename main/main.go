@@ -5,8 +5,10 @@ import "github.com/leoopd/cyo-adventure/adventure"
 func main() {
 
 	file := "gopher.json"
-	var advPart adventure.Part
+	chapter := "intro"
 
-	_ = adventure.Intro(advPart, adventure.JSONParser(file))
+	for chapter != "home" {
+		chapter = adventure.Chapter(adventure.JSONParser(file, chapter))
+	}
 
 }
