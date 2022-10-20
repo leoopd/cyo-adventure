@@ -2,7 +2,9 @@ package adventure
 
 import (
 	"encoding/json"
+	"html/template"
 	"log"
+	"net/http"
 	"os"
 )
 
@@ -19,6 +21,17 @@ type AdvPart struct {
 type AdvOptions struct {
 	Text string `json:"text"`
 	Arc  string `json:"arc"`
+}
+
+func (a AdvPart) ServeHTTP(w http.ResponseWriter, r *http.Request) {
+	t, err := template.New("adventure").ParseFiles("./adventure.html")
+	if err != nil {
+		log.Fatal(err)
+	}
+	err = t.Execute(w, a)
+	if err != nil {
+		log.Fatal(err)
+	}
 }
 
 // Unmarshals the data for the specified chapter into adv and returns it.
