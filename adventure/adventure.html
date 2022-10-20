@@ -12,8 +12,9 @@
         <br>
         <h2>Options</h2>
         <ul>
-            <li>{{.Options.Text}}</li>
-            <li>{{.Options.Text}}</li>
+            {{range .Options}}
+                <li>{{.Text}}</li>
+            {{end}}
         </ul>
         <footer>Made with Go</footer>
     </body>

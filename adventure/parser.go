@@ -24,7 +24,7 @@ type AdvOptions struct {
 }
 
 func (a AdvPart) ServeHTTP(w http.ResponseWriter, r *http.Request) {
-	t, err := template.New("adventure").ParseFiles("./adventure.html")
+	t, err := template.ParseFiles("./templates/adventure.tmpl")
 	if err != nil {
 		log.Fatal(err)
 	}

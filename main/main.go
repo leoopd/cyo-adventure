@@ -15,6 +15,11 @@ import (
 
 // }
 
+type varss struct {
+	Greeting string
+	Name     string
+}
+
 func main() {
 
 	file := "gopher.json"
