@@ -24,13 +24,13 @@ type AdvOptions struct {
 }
 
 func (a AdvPart) ServeHTTP(w http.ResponseWriter, r *http.Request) {
-	t, err := template.ParseFiles("./templates/adventure.tmpl")
+	t, err := template.ParseFiles("./templates/adventure.html")
 	if err != nil {
-		log.Fatal(err)
+		log.Fatal("Can't parse the files. Error: ", err)
 	}
 	err = t.Execute(w, a)
 	if err != nil {
-		log.Fatal(err)
+		log.Fatal("Can't execute the templates. Error: ", err)
 	}
 }
 
