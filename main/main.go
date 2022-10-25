@@ -7,14 +7,6 @@ import (
 	"github.com/leoopd/cyo-adventure/adventure"
 )
 
-// type myHandler struct {
-// 	Adventure utils.A
-// }
-
-// func (m myHandler) ServeHTTP (w http.ResponseWriter, r *http.Request) {
-
-// }
-
 type varss struct {
 	Greeting string
 	Name     string
@@ -24,10 +16,6 @@ func main() {
 
 	file := "gopher.json"
 	chapter := "intro"
-
-	// for chapter != "home" {
-	// 	chapter = adventure.Chapter(adventure.JSONParser(file, chapter))
-	// }
 
 	adv := adventure.JSONParser(file, chapter)
 	http.Handle("/intro", adv)
