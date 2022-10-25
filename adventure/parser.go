@@ -2,6 +2,7 @@ package adventure
 
 import (
 	"encoding/json"
+	"fmt"
 	"html/template"
 	"log"
 	"net/http"
@@ -24,6 +25,7 @@ type AdvOptions struct {
 }
 
 func (a AdvPart) ServeHTTP(w http.ResponseWriter, r *http.Request) {
+	fmt.Println(r.URL.Path)
 	t, err := template.ParseFiles("./templates/adventure.html")
 	if err != nil {
 		log.Fatal("Can't parse the files. Error: ", err)

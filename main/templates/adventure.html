@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <title>Chose your own adventure</title>
-        <link rel="stylesheet" href="./css/skeleton.css">
+        <link rel="stylesheet" href="../../html/css/skeleton.css">
     </head>
     <body>
         <h1>{{.Title}}</h1>
@@ -13,7 +13,7 @@
         <h2>Options</h2>
         <ul>
             {{range .Options}}
-                <li>{{.Text}}</li>
+                <li><a href={{.Arc}}>{{.Text}}</a></li>
             {{end}}
         </ul>
         <footer>Made with Go</footer>

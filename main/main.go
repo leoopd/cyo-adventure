@@ -30,7 +30,7 @@ func main() {
 	// }
 
 	adv := adventure.JSONParser(file, chapter)
-	http.Handle("/", adv)
+	http.Handle("/intro", adv)
 
 	log.Print("Listening on :8081")
 	err := http.ListenAndServe(":8081", adv)
