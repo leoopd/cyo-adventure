@@ -36,9 +36,14 @@ func (a Adventure) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		log.Fatal("Can't parse the files. Error: ", err)
 	}
-	err = t.Execute(w, a[chapter])
-	if err != nil {
-		log.Fatal("Can't execute the templates. Error: ", err)
+
+	if a[chapter].Title == "" {
+		fmt.Fprint(w, "Please direct to 'ler0y.com:8081/intro' to start your adventure")
+	} else {
+		err = t.Execute(w, a[chapter])
+		if err != nil {
+			log.Fatal("Can't execute the templates. Error: ", err)
+		}
 	}
 }
 

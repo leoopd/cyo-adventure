@@ -1,21 +1,21 @@
 package main
 
 import (
+	"fmt"
 	"log"
 	"net/http"
 
 	"github.com/leoopd/cyo-adventure/adventure"
 )
 
-type varss struct {
-	Greeting string
-	Name     string
-}
-
 func main() {
 
 	file := "gopher.json"
 	chapter := "intro"
+
+	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+		fmt.Fprintf(w, "To use the adventure, please direct to ler0y.com:8081/intro")
+	})
 
 	adv := adventure.JSONParser(file, chapter)
 	http.Handle("/intro", adv)
@@ -25,4 +25,5 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
+
 }
