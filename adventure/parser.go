@@ -28,7 +28,7 @@ type AdvOptions struct {
 func (a Adventure) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 
 	var chapter string
-	if r.URL.Path != "/favicon.ico" && r.URL.Path != "/html/css/skeleton.css" {
+	if r.URL.Path != "/favicon.ico" && r.URL.Path != "/css/myCss.css" {
 		fmt.Println(r.URL.Path)
 		chapter = strings.Trim(r.URL.Path, "/")
 	}
