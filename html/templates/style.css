@@ -1,0 +1,31 @@
+body {
+    font-family: 'Open Sans';
+}
+
+a,
+a:visited {
+    text-decoration: none;
+    color: #6295b5;
+}
+
+a:active,
+a:hover {
+    color: #7792a2;
+}
+
+.box {
+    border-radius: 5px;
+    background-color: #FFFCF6;
+    margin: auto;
+    margin-top: 100px;
+    width: 35%;
+    padding-right: 50px;
+    padding-left: 50px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}        
+
+h2 {
+    text-decoration: underline #555;
+}

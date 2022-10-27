@@ -18,6 +18,8 @@ func main() {
 	})
 
 	adv := adventure.JSONParser(file, chapter)
+	
+	http.Handle("/style.css", http.FileServer(http.Dir("../html/templates/style.css")))
 	http.Handle("/intro", adv)
 
 	log.Print("Listening on :8081")

@@ -32,7 +32,7 @@ func (a Adventure) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 		fmt.Println(r.URL.Path)
 		chapter = strings.Trim(r.URL.Path, "/")
 	}
-	t, err := template.ParseFiles("../html/templates/adventure.html")
+	t, err := template.ParseFiles("../html/templates/adventure.html", "../html/templates/style.css")
 	if err != nil {
 		log.Fatal("Can't parse the files. Error: ", err)
 	}
